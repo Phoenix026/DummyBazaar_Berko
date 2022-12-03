@@ -5,14 +5,16 @@ using System.Linq;
 
 namespace DummyBazaarBerko.Models
 {
-    public partial class DummyBazaarBerko : DbContext
+    public partial class DummyBazaarModel : DbContext
     {
-        public DummyBazaarBerko()
-            : base("name=DummyBazaarBerko")
+        public DummyBazaarModel()
+            : base("name=DummyBazaarModel")
         {
         }
         public virtual DbSet<Manager> Managers { get; set; }
         public virtual DbSet<ManagerType> ManagerTypes { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -267,12 +267,14 @@ h6 {
 }
 
 .sidebar {
-    width: 300px;
+    width: 15%;
+   
     height: 1000px;
     float: left;
 }
 
 .main {
+    width:85%;
     margin-top: 40px;
     float: left;
     padding: 10px 20px;
