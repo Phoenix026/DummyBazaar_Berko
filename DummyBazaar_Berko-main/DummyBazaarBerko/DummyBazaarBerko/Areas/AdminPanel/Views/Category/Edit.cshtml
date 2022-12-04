@@ -6,16 +6,24 @@
 
 <div class="form">
     <div class="formtitle">
-        <h3>Kategori Ekle</h3>
+        <h3>Kategori Düzenle</h3>
     </div>
     <div class="formcontent">
+        @if (ViewBag.Mesaj != null)
+        {
+            <div>
+                @ViewBag.Mesaj
+            </div>
+        }
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken();
+            @Html.HiddenFor(model=>model.ID)
             <div>
                 @Html.LabelFor(model => model.Name)
                 <br />
                 @Html.EditorFor(model => model.Name)
+                <br />
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
             <div>
@@ -23,12 +31,16 @@
                 @Html.LabelFor(model => model.Description)
                 <br />
                 @Html.EditorFor(model => model.Description)
+                <br />
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
             <div>
-                <input type="submit" value="Kategori EKle" />
+                <input type="submit" value="Kategori Düzenle" />
             </div>
         }
+    </div>
+    <div>
+        <a href="@Url.Action("Index","Category")">Kategoriler Listesine Dön</a>
     </div>
 </div>
 

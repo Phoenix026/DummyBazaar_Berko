@@ -1,12 +1,12 @@
-﻿@model DummyBazaarBerko.Models.Category
+﻿@model DummyBazaarBerko.Models.Product
 @{
-    ViewBag.Title = "Kategori Ekle";
+    ViewBag.Title = "Ürün Ekle";
     Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutPage1.cshtml";
 }
 
 <div class="form">
     <div class="formtitle">
-        <h3>Kategori Ekle</h3>
+        <h3>Ürün Ekle</h3>
     </div>
     <div class="formcontent">
         @using (Html.BeginForm())
@@ -19,6 +19,14 @@
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
             <div>
+                <label>Kategori Seçiniz</label>
+                <br />
+                @Html.DropDownList("Category_ID",null,htmlAttributes:new {@class="DropDown"})
+                <br />
+                @Html.ValidationMessageFor(model => model.Category_ID)
+                <br />
+            </div>
+            <div>
 
                 @Html.LabelFor(model => model.Description)
                 <br />
@@ -26,9 +34,8 @@
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
             <div>
-                <input type="submit" value="Kategori EKle" />
+                <input type="submit" value="Ürün EKle" />
             </div>
         }
     </div>
 </div>
-

@@ -3,10 +3,13 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/AdminPanel/Views/Shared/_LayoutPage1.cshtml";
 }
-<div class="pagetitle">
+<div class="pagetitle" style="padding-left:0;">
     <h3>Kategoriler <small>Kayıtlı tüm kategorilerin listesi</small></h3>
 </div>
 <div>
+    <div style="padding-bottom:20px;">
+        <a href="@Url.Action("Create","Category")"class="createButton">Kategori Ekle</a>
+    </div>
     <table cellspacing="0"cellpadding="0"class="liste">
         <tr>
             <th>
@@ -41,8 +44,8 @@
                    }
                </td>
             <td>
-                <a href="#">Düzenle</a>
-                <a href="#">Sil</a>
+                <a href="@Url.Action("Edit","Category", new {id = item.ID})">Düzenle</a>
+                <a href="@Url.Action("Delete", "Category", new {id = item.ID})">Sil</a>
             </td>
            </tr>
        }

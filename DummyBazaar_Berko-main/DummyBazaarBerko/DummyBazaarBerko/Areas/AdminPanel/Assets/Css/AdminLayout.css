@@ -279,7 +279,38 @@ h6 {
     float: left;
     padding: 10px 20px;
 }
-
+.userpanel{
+    margin-top:40px;
+    padding:30px 20px;
+}
 .container {
     padding: 0.01em 16px;
 }
+.sidebar
+{
+    list-style-type:none;
+}
+.sidebarMenu li{
+    padding:7px;
+    background-color: #1b2838;
+    border-bottom:1px solid #171a21;
+}
+.sidebarMenu a li:hover {
+    background-color: #29415f;
+}
+
+.sidebarMenu a{
+    text-decoration:none;
+    color:white;
+}
+.createButton {
+    background-color: teal;
+    color: white;
+    padding: 7px 25px;
+    text-align: center;
+    font-weight: 900;
+    border: 1px solid #025151;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+

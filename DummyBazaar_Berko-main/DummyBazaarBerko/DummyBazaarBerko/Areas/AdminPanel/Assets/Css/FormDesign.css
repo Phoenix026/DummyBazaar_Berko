@@ -22,6 +22,12 @@
     border-radius:3px;
     border:1px solid silver;
 }
+    .form .DropDown {
+        width: 90%;
+        padding: 7px;
+        border-radius: 3px;
+        border: 1px solid silver;
+    }
     .form textarea {
         width: 90%;
         padding: 7px;
