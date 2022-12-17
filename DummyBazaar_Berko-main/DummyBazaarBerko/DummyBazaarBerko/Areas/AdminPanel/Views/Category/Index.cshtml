@@ -33,14 +33,17 @@
                    @item.Name
                </td>
                <td>
-                   @if (item.Description.Length >= 50)
-                      {
-                       @item.Description.Substring(0, 50);
-                   <label>...</label>
-                   }
-                   else
+                   @if (item.Description != null)
                    {
-                       @item.Description
+                       if (item.Description.Length >= 50)
+                       {
+                           @item.Description.Substring(0, 50);
+                           <label>...</label>
+                       }
+                       else
+                       {
+                           @item.Description
+                       }
                    }
                </td>
             <td>
