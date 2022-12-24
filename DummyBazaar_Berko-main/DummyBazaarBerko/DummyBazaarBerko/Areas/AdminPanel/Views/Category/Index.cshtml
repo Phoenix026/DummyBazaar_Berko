@@ -16,6 +16,9 @@
                 @Html.DisplayNameFor(model => model.ID)
             </th>
             <th>
+                Üst Kategori
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
@@ -28,6 +31,16 @@
            <tr>
                <td>
                    @item.ID
+               </td>
+               <td>
+                   @if (item.TopCategory_ID != null)
+                   {
+                       <label>@item.TopCategory.Name</label>
+                   }
+                   else
+                   {
+                       <label>-</label>
+                   }
                </td>
                <td>
                    @item.Name

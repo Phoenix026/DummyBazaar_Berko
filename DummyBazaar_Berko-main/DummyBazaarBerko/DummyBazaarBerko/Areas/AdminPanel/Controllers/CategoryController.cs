@@ -1,4 +1,5 @@
-﻿using DummyBazaarBerko.Models;
+﻿using DummyBazaarBerko.Areas.AdminPanel.Filters;
+using DummyBazaarBerko.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,19 +9,28 @@ using System.Web.Mvc;
 
 namespace DummyBazaarBerko.Areas.AdminPanel.Controllers
 {
+    [AdminAuthenticationFilter]
     public class CategoryController : Controller
     {
         DummyBazaarModel db = new DummyBazaarModel();
-        // GET: AdminPanel/Category
+        // GET: AdminPanel/Categor
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            return View(db.Categories.OrderBy(s=>s.TopCategory_ID).ToList());
         }
 
         [HttpGet]
+        [ManagerTypeAuthenticationFilter]
         public ActionResult Create()
         {
+            List<SelectListItem> categories = new List<SelectListItem>();
+            categories.Add(new SelectListItem { Text = "Üst Kategori", Value = "0", Selected = true });
+            foreach (Category item in db.Categories.Where(s=>s.TopCategory_ID == null))
+            {
+                categories.Add(new SelectListItem { Text = item.Name, Value = item.ID.ToString(), Selected = false });
+            }
            
+            ViewBag.TopCategories = categories;
             return View();
         }
 
@@ -29,10 +39,15 @@ namespace DummyBazaarBerko.Areas.AdminPanel.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Categories.Add (model); 
-                db.SaveChanges();  
+                if (model.TopCategory_ID == 0)
+                {
+                    model.TopCategory_ID = null;
+                }
+                db.Categories.Add(model);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
+           
             return View(model);
         }
         [HttpGet]

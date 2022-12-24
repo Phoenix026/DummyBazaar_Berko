@@ -1,4 +1,5 @@
-﻿using DummyBazaarBerko.Models;
+﻿using DummyBazaarBerko.Areas.AdminPanel.Filters;
+using DummyBazaarBerko.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 
 namespace DummyBazaarBerko.Areas.AdminPanel.Controllers
 {
+    [AdminAuthenticationFilter]
     public class ProductController : Controller
     {
         DummyBazaarModel db = new DummyBazaarModel();
