@@ -148,6 +148,7 @@
     <Folder Include="Areas\AdminPanel\Assets\Images\" />
     <Folder Include="Areas\AdminPanel\Assets\Js\" />
     <Folder Include="Areas\AdminPanel\Data\" />
+    <Folder Include="Areas\AdminPanel\Views\Profile\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>
